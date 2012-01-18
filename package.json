@@ -1,0 +1,19 @@
+{
+  "author": "",
+  "name": "no-build-conf",
+  "description": "Stop configuring your assets pipeline. Eevrything is in the HTML. Asset manager just have to read it.",
+  "version": "0.0.1",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.6.7"
+  },
+  "dependencies": {
+    "mkdirp": "~0.2.2",
+    "cheerio": "~0.4.2"
+  },
+  "devDependencies": {
+    "mocha": "~0.10.1"
+  }
+}

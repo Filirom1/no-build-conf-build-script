@@ -31,7 +31,7 @@ optimize. Here `app.css` and `app.js`.
 
 You need [nodejs installed](http://nodejs.org/#download).
 
-    $ git clone https://Filirom2@github.com/Filirom1/h5bp-build-script-tags.git
+    $ git clone https://github.com/Backbonist/no-build-conf-build-script.git
     $ cd h5bp-build-script-tags
     $ [sudo] npm install -g
 

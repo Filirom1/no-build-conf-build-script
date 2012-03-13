@@ -17,7 +17,8 @@
     "mkdirp": "~0.2.2",
     "uglify-js": "~1.2.5",
     "cheerio": "~0.6.2",
-    "ncp": "~0.2.5"
+    "ncp": "~0.2.5",
+    "async": "~0.1.18"
   },
   "devDependencies": {
     "mocha": "~0.10.1"

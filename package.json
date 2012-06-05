@@ -1,8 +1,8 @@
 {
   "author": "",
   "name": "no-build-conf",
-  "description": "Stop configuring your assets pipeline. Everything is in the HTML. Asset manager just have to read it.",
-  "version": "0.0.1",
+  "description": "Stop configuring your assets pipeline. Everything is in the HTML. The build script just read your index.html.",
+  "version": "0.1.0",
   "repository": {
     "url": ""
   },

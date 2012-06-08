@@ -31,14 +31,60 @@ optimize. Here `app.css` and `app.js`.
 
 You need [nodejs installed](http://nodejs.org/#download).
 
-    $ git clone https://github.com/Backbonist/no-build-conf-build-script.git
-    $ cd h5bp-build-script-tags
-    $ [sudo] npm install -g
+    $ [sudo] npm install -g no-build-conf
 
 
-### Use the build script
+### Use the build script as a CLI
 
-  $ build-html inputdir outputdir
+    $ build-html inputdir outputdir
+    info build rm -rf example/out/
+    info build mkdir -p example/out/
+    info build cp -r example/in/ example/out/
+    info less parse example/out/css/normalize.less
+    info less parse example/out/css/style.less
+    info less parse example/out/css/todo.less
+    info less parse example/out/css/utils.less
+    info less write example/out/css/normalize.css
+    info less write example/out/css/todo.css
+    info less write example/out/css/utils.css
+    info less write example/out/css/style.css
+    info concat Concat files in example/out/ [ 'vendor/log.js',
+    info concat   'vendor/underscore.js',
+    info concat   'vendor/backbone.js',
+    info concat   'vendor/handlebars.runtime-1.0.0.beta.6.js',
+    info concat   'application.js',
+    info concat   'lib/util.js',
+    info concat   'lib/jquery.plugin.js',
+    info concat   'lib/Backbone.plugin.js',
+    info concat   'model/Todo.js',
+    info concat   'template/templates.js',
+    info concat   'view/todo/TodoView.js',
+    info concat   'Router.js' ]
+    info js minify js
+    info md5 compute md5
+    info link write example/out/app-6423e0.js
+    info css minify css example/out/css/style.css
+    info md5 compute md5
+    info link write example/out/css/app-503e33.css
+    info build create file example/out/index.html
+    info bin Build done ✔
+
+
+### Use the build script as a library
+
+    var buildScript = require('no-build-conf');
+
+    var processors = [
+      require('no-build-conf/lib/processors/file/less'),
+      require('no-build-conf/lib/processors/dom/script'),
+      require('no-build-conf/lib/processors/dom/link')
+    ];
+
+    build(target_dir, output_dir, processors, function(err, newFile){
+        if(err) throw err;
+        console.log('Build done ✔');
+    });
+
 
 ### Result
 

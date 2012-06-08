@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-var build = require('../lib/html'),
+var build = require('../lib/build'),
   Path = require('path'),
   fs = require('fs'),
+  log = require('npmlog'),
   usage = "Usage: build-html inputdir outputdir";
 
 
@@ -14,19 +15,23 @@ args.shift(); args.shift();
 var target_dir = args[0],
   output_dir = args[1];
 
-if(!target_dir || !output_dir) return console.error(usage);
+if(!target_dir || !output_dir) return console.error(usage);
 
 fs.lstat(output_dir, function(err){
   if(err){
     fs.mkdirSync(output_dir);
   }
-  build(target_dir, output_dir, function(err, newFile){
+
+  var processors = [
+    require('../lib/processors/file/less'),
+    require('../lib/processors/dom/script'),
+    require('../lib/processors/dom/link')
+  ];
+
+  build(target_dir, output_dir, processors, function(err, newFile){
       if(err){
-        console.error(err.message);
-        process.exit(-1);
+        throw err;
       }
-      console.log('✔ ' + newFile);
+      log.info('bin', 'Build done ✔');
   });
-})
-
-
+});

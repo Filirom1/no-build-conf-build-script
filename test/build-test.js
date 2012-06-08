@@ -1,4 +1,4 @@
-var buildScript = require('../lib/html'),
+var buildScript = require('../lib/build'),
   rimraf = require('rimraf'),
   Path = require('path'),
   fs = require('fs'),
@@ -17,7 +17,12 @@ describe('When building `example/in` into `example/out`', function(){
       if (err) throw err;
       fs.mkdir(outPath, function(err){
         if (err) throw err;
-        buildScript(inPath, outPath, function(err){
+        var processors = [
+          require('../lib/processors/file/less'),
+          require('../lib/processors/dom/script'),
+          require('../lib/processors/dom/link')
+        ];
+        buildScript(inPath, outPath, processors, function(err){
           if (err) throw err;
           createHttpServer(3000, outPath, function(err){
             if (err) throw err;

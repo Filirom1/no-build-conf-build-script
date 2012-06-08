@@ -3,7 +3,7 @@ No build conf - build script
 
 This project is greatly inspired by <https://github.com/mklabs/h5bp-build-script-tags>. [@mklabs](https://github.com/mklabs) You rock !!!
 
-This project is not stable. You may prefer using the official [HTML5 Build Script](http://html5boilerplate.com/docs/Build-script/) instead.
+Tested on Linux and Windows.
 
 ### HTML modification
 

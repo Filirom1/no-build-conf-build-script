@@ -24,14 +24,18 @@ fs.lstat(output_dir, function(err){
 
   var processors = [
     require('../lib/processors/file/less'),
+    require('../lib/processors/file/optipng'),
+    require('../lib/processors/file/jpegtran'),
     require('../lib/processors/dom/script'),
-    require('../lib/processors/dom/link')
+    require('../lib/processors/dom/link'),
+    require('../lib/processors/file/html-minifier')
   ];
 
+  var begin = new Date();
   build(target_dir, output_dir, processors, function(err, newFile){
       if(err){
         throw err;
       }
-      log.info('bin', 'Build done ✔');
+      log.info('bin', 'Build done in', new Date() - begin, 'ms' );
   });
 });

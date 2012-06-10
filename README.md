@@ -48,6 +48,10 @@ You need [nodejs installed](http://nodejs.org/#download).
     info less write example/out/css/todo.css
     info less write example/out/css/utils.css
     info less write example/out/css/style.css
+    info optipng optimize [ 'example/out/img/fr.png', 'example/out/img/information.png' ]
+    info optipng /usr/bin/optipng -quiet example/out/img/fr.png example/out/img/information.png
+    info jpegtran /usr/bin/jpegtran -copy none -optimize -outfile jpg-tmp.jpg example/out/img/cc-logo.jpg
+    info jpegtran /usr/bin/jpegtran -copy none -optimize -outfile jpg-tmp.jpg example/out/img/mid-Creative_Commons_and_Commerce.ogg.jpg
     info concat Concat files in example/out/ [ 'vendor/log.js',
     info concat   'vendor/underscore.js',
     info concat   'vendor/backbone.js',
@@ -67,6 +71,7 @@ You need [nodejs installed](http://nodejs.org/#download).
     info md5 compute md5
     info link write example/out/css/app-503e33.css
     info build create file example/out/index.html
+    info html-minifier optimize example/out/index.html
     info bin Build done ✔
 
 
@@ -76,8 +81,11 @@ You need [nodejs installed](http://nodejs.org/#download).
 
     var processors = [
       require('no-build-conf/lib/processors/file/less'),
+      require('no-build-conf/lib/processors/file/optipng'),
+      require('no-build-conf/lib/processors/file/jpegtran'),
       require('no-build-conf/lib/processors/dom/script'),
-      require('no-build-conf/lib/processors/dom/link')
+      require('no-build-conf/lib/processors/dom/link'),
+      require('no-build-conf/lib/processors/file/html')
     ];
 
     build(target_dir, output_dir, processors, function(err, newFile){

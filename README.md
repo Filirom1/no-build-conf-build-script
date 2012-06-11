@@ -5,7 +5,7 @@ Optimize your SPA programmatically.
 
 This project is greatly inspired by [@mklabs](https://github.com/mklabs) works.
 
-![Bulldozer](raw/master/draft.png)
+![Bulldozer](https://github.com/Filirom1/no-build-conf-build-script/raw/master/draft.png)
 
 Tested on Linux and Windows.
 
@@ -56,55 +56,55 @@ You need [nodejs installed](http://nodejs.org/#download).
 ### Use the build script as a CLI
 
     $ build-html example/in example/out
-    info <font color="purple">build</font> rm -rf example/out/
-    info <font color="purple">build</font>  mkdir -p example/out/
-    info <font color="purple">build</font>  cp -r example/in/ example/out/
-    info <font color="purple">less</font>  parse example/out/css/normalize.less
-    info <font color="purple">less</font>  parse example/out/css/style.less
-    info <font color="purple">less</font>  parse example/out/css/todo.less
-    info <font color="purple">less</font>  parse example/out/css/utils.less
-    info <font color="purple">less</font>  write example/out/css/normalize.css
-    info <font color="purple">less</font>  write example/out/css/todo.css
-    info <font color="purple">less</font>  write example/out/css/utils.css
-    info <font color="purple">less</font>  write example/out/css/style.css
-    info <font color="purple">optipng</font>  optimize [ 'example/out/img/fr.png', 'example/out/img/information.png' ]
-    info <font color="purple">optipng</font>  /usr/bin/optipng -quiet example/out/img/fr.png example/out/img/information.png
-    info <font color="purple">jpegtran</font>  /usr/bin/jpegtran -copy none -optimize -outfile jpg-tmp.jpg example/out/img/cc-logo.jpg
-    info <font color="purple">jpegtran</font>  /usr/bin/jpegtran -copy none -optimize -outfile jpg-tmp.jpg example/out/img/mid-Creative_Commons_and_Commerce.ogg.jpg
-    info <font color="purple">concat</font>  Concat files in example/out/ [ 'vendor/log.js',
-    info <font color="purple">concat</font>    'vendor/underscore.js',
-    info <font color="purple">concat</font>    'vendor/backbone.js',
-    info <font color="purple">concat</font>    'vendor/handlebars.runtime-1.0.0.beta.6.js',
-    info <font color="purple">concat</font>    'application.js',
-    info <font color="purple">concat</font>    'lib/util.js',
-    info <font color="purple">concat</font>    'lib/jquery.plugin.js',
-    info <font color="purple">concat</font>    'lib/Backbone.plugin.js',
-    info <font color="purple">concat</font>    'model/Todo.js',
-    info <font color="purple">concat</font>    'template/templates.js',
-    info <font color="purple">concat</font>    'view/todo/TodoView.js',
-    info <font color="purple">concat</font>    'Router.js' ]
-    info <font color="purple">js</font>  minify js
-    info <font color="purple">md5</font>  compute md5
-    info <font color="purple">link</font>  write example/out/app-6423e0.js
-    info <font color="purple">css</font>  minify css example/out/css/style.css
-    WARN <font color="purple">css-b64-images</font>  [ [Error: Skip ../fonts/maven_pro_medium-webfont.eot Exceed max size],
-    WARN <font color="purple">css-b64-images</font>    [Error: Skip ../fonts/maven_pro_medium-webfont.eot?iefix Exceed max size],
-    WARN <font color="purple">css-b64-images</font>    [Error: Skip ../fonts/maven_pro_medium-webfont.woff Exceed max size],
-    WARN <font color="purple">css-b64-images</font>    [Error: Skip ../fonts/maven_pro_medium-webfont.ttf Exceed max size],
-    WARN <font color="purple">css-b64-images</font>    [Error: Skip ../fonts/maven_pro_medium-webfont.svg#webfontyQA0TEWF Exceed max size],
-    WARN <font color="purple">css-b64-images</font>    [Error: Skip ../fonts/callunasansregular-webfont.eot Exceed max size],
-    WARN <font color="purple">css-b64-images</font>    [Error: Skip ../fonts/callunasansregular-webfont.eot?#iefix Exceed max size],
-    WARN <font color="purple">css-b64-images</font>    [Error: Skip ../fonts/callunasansregular-webfont.woff Exceed max size],
-    WARN <font color="purple">css-b64-images</font>    [Error: Skip ../fonts/callunasansregular-webfont.ttf Exceed max size],
-    WARN <font color="purple">css-b64-images</font>    [Error: Skip ../fonts/callunasansregular-webfont.svg#webfontW850hM1B Exceed max size],
-    WARN <font color="purple">css-b64-images</font>    [Error: Skip http://pullrequest.org/img/background-pattern.gif External file.],
-    WARN <font color="purple">css-b64-images</font>    [Error: Skip ../img/mixit-banner.png Exceed max size],
-    WARN <font color="purple">css-b64-images</font>    { [Error: ENOENT, stat 'example/out/img/nlabal.png'] errno: 34, code: 'ENOENT', path: 'example/out/img/nlabal.png' } ]
-    info <font color="purple">md5</font>  compute md5
-    info <font color="purple">link</font>  write example/out/css/app-503e33.css
-    info <font color="purple">build</font>  create file example/out/index.html
-    info <font color="purple">html-minifier</font>  optimize example/out/index.html
-    info <font color="purple">bin</font>  Build done in 1327 ms
+    info build rm -rf example/out/
+    info build mkdir -p example/out/
+    info build cp -r example/in/ example/out/
+    info less parse example/out/css/normalize.less
+    info less parse example/out/css/style.less
+    info less parse example/out/css/todo.less
+    info less parse example/out/css/utils.less
+    info less write example/out/css/normalize.css
+    info less write example/out/css/todo.css
+    info less write example/out/css/utils.css
+    info less write example/out/css/style.css
+    info optipng optimize [ 'example/out/img/fr.png', 'example/out/img/information.png' ]
+    info optipng /usr/bin/optipng -quiet example/out/img/fr.png example/out/img/information.png
+    info jpegtran /usr/bin/jpegtran -copy none -optimize -outfile jpg-tmp.jpg example/out/img/cc-logo.jpg
+    info jpegtran /usr/bin/jpegtran -copy none -optimize -outfile jpg-tmp.jpg example/out/img/mid-Creative_Commons_and_Commerce.ogg.jpg
+    info concat Concat files in example/out/ [ 'vendor/log.js',
+    info concat   'vendor/underscore.js',
+    info concat   'vendor/backbone.js',
+    info concat   'vendor/handlebars.runtime-1.0.0.beta.6.js',
+    info concat   'application.js',
+    info concat   'lib/util.js',
+    info concat   'lib/jquery.plugin.js',
+    info concat   'lib/Backbone.plugin.js',
+    info concat   'model/Todo.js',
+    info concat   'template/templates.js',
+    info concat   'view/todo/TodoView.js',
+    info concat   'Router.js' ]
+    info js minify js
+    info md5 compute md5
+    info link write example/out/app-6423e0.js
+    info css minify css example/out/css/style.css
+    WARN css-b64-images [ [Error: Skip ../fonts/maven_pro_medium-webfont.eot Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/maven_pro_medium-webfont.eot?iefix Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/maven_pro_medium-webfont.woff Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/maven_pro_medium-webfont.ttf Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/maven_pro_medium-webfont.svg#webfontyQA0TEWF Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/callunasansregular-webfont.eot Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/callunasansregular-webfont.eot?#iefix Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/callunasansregular-webfont.woff Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/callunasansregular-webfont.ttf Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/callunasansregular-webfont.svg#webfontW850hM1B Exceed max size],
+    WARN css-b64-images   [Error: Skip http://pullrequest.org/img/background-pattern.gif External file.],
+    WARN css-b64-images   [Error: Skip ../img/mixit-banner.png Exceed max size],
+    WARN css-b64-images   { [Error: ENOENT, stat 'example/out/img/nlabal.png'] errno: 34, code: 'ENOENT', path: 'example/out/img/nlabal.png' } ]
+    info md5 compute md5
+    info link write example/out/css/app-503e33.css
+    info build create file example/out/index.html
+    info html-minifier optimize example/out/index.html
+    info bin Build done in 1327 ms
 
 
 ### Use the build script as a library

@@ -1,7 +1,11 @@
 No build conf - build script
 ----------------------------
 
-This project is greatly inspired by <https://github.com/mklabs/h5bp-build-script-tags>. [@mklabs](https://github.com/mklabs) You rock !!!
+Optimize your SPA programmatically.
+
+This project is greatly inspired by [@mklabs](https://github.com/mklabs) works.
+
+![Bulldozer](draft.png)
 
 Tested on Linux and Windows.
 
@@ -27,6 +31,21 @@ optimize. Here `app.css` and `app.js`.
     <script src="Router.js" data-build="app.js"></script>
     <!-- end scripts -->
 
+### Result
+
+The result is an optimized directory:
+
+The previous HTML portion now look like this:
+
+    <link rel="stylesheet" href="app.459703.css" data-build="app.css">
+    <script src="app.6423e0.js" data-build="app.js"></script>
+
+CSS and JS are:
+
+* minified
+* merged
+* MD5'd
+
 ### Install this project
 
 You need [nodejs installed](http://nodejs.org/#download).
@@ -36,7 +55,7 @@ You need [nodejs installed](http://nodejs.org/#download).
 
 ### Use the build script as a CLI
 
-    $ build-html inputdir outputdir
+    $ build-html example/in example/out
     info build rm -rf example/out/
     info build mkdir -p example/out/
     info build cp -r example/in/ example/out/
@@ -85,10 +104,14 @@ You need [nodejs installed](http://nodejs.org/#download).
     info link write example/out/css/app-503e33.css
     info build create file example/out/index.html
     info html-minifier optimize example/out/index.html
-    info bin Build done ✔
+    info bin Build done in 1327 ms
 
 
 ### Use the build script as a library
+
+The no-build-conf build script works like connect middlewares.
+
+Here processors/middlewares [less](http://lesscss.org/), [optipng](http://optipng.sourceforge.net/), [jpegtran](http://jpegclub.org/jpegtran/), script, link, [css-b64-images](https://github.com/Filirom1/css-base64-images), [html-minifier](https://github.com/kangax/html-minifier) are applied in order.
 
     var buildScript = require('no-build-conf');
 
@@ -99,7 +122,7 @@ You need [nodejs installed](http://nodejs.org/#download).
       require('no-build-conf/lib/processors/dom/script'),
       require('no-build-conf/lib/processors/dom/link'),
       require('no-build-conf/lib/processors/dom/css-b64-images'),
-      require('no-build-conf/lib/processors/file/html')
+      require('no-build-conf/lib/processors/file/html-minifier')
     ];
 
     build(target_dir, output_dir, processors, function(err, newFile){
@@ -107,19 +130,48 @@ You need [nodejs installed](http://nodejs.org/#download).
         console.log('Build done ✔');
     });
 
+There is two sorts of processors:
 
-### Result
+* file processors
+* dom processors
 
-The result is an optimized directory:
+#### File processors
 
-The previous HTML portion now look like this:
+File processors take a list of files as argument.
 
-    <link rel="stylesheet" href="app.459703.css" data-build="app.css">
-    <script src="app.6423e0.js" data-build="app.js"></script>
+In the following example, the argument file will contain an array of every png images in the directory.
+For more information about the [Glob pattern](https://github.com/isaacs/node-glob).
 
-CSS and JS are:
+    module.exports = {
+      glob: '**/*.png',
 
-* minified
-* merged
-* MD5'd
+      process: function(files, next){ 
+        //...
+      }
+    }
 
+
+#### Dom processors
+
+Dom processors take a list of DOM element as argument.
+
+$ is based on a jQuery-like implementation: [Cheerio](https://github.com/MatthewMueller/cheerio) that works on Unix and Windows.
+
+    module.exports = {
+      el: 'link[data-build] href',
+
+      process: function($, dir, links, next){
+        if(!links) return next();
+        var keys = Object.keys(links);
+        if(!keys.length) return next();
+        keys.forEach(function(key){
+          var hrefs = links[key];
+          //...
+
+        }
+      }
+    }
+
+## License
+
+Everything original is MIT, everything else honors whatever license it was written under.

@@ -5,7 +5,7 @@ Optimize your SPA programmatically.
 
 This project is greatly inspired by [@mklabs](https://github.com/mklabs) works.
 
-![Bulldozer](draft.png)
+![Bulldozer](no-build-conf-build-script/raw/master/draft.png)
 
 Tested on Linux and Windows.
 

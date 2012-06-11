@@ -68,6 +68,19 @@ You need [nodejs installed](http://nodejs.org/#download).
     info md5 compute md5
     info link write example/out/app-6423e0.js
     info css minify css example/out/css/style.css
+    WARN css-b64-images [ [Error: Skip ../fonts/maven_pro_medium-webfont.eot Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/maven_pro_medium-webfont.eot?iefix Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/maven_pro_medium-webfont.woff Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/maven_pro_medium-webfont.ttf Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/maven_pro_medium-webfont.svg#webfontyQA0TEWF Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/callunasansregular-webfont.eot Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/callunasansregular-webfont.eot?#iefix Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/callunasansregular-webfont.woff Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/callunasansregular-webfont.ttf Exceed max size],
+    WARN css-b64-images   [Error: Skip ../fonts/callunasansregular-webfont.svg#webfontW850hM1B Exceed max size],
+    WARN css-b64-images   [Error: Skip http://pullrequest.org/img/background-pattern.gif External file.],
+    WARN css-b64-images   [Error: Skip ../img/mixit-banner.png Exceed max size],
+    WARN css-b64-images   { [Error: ENOENT, stat 'example/out/img/nlabal.png'] errno: 34, code: 'ENOENT', path: 'example/out/img/nlabal.png' } ]
     info md5 compute md5
     info link write example/out/css/app-503e33.css
     info build create file example/out/index.html
@@ -85,6 +98,7 @@ You need [nodejs installed](http://nodejs.org/#download).
       require('no-build-conf/lib/processors/file/jpegtran'),
       require('no-build-conf/lib/processors/dom/script'),
       require('no-build-conf/lib/processors/dom/link'),
+      require('no-build-conf/lib/processors/dom/css-b64-images'),
       require('no-build-conf/lib/processors/file/html')
     ];
 

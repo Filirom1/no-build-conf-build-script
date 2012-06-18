@@ -29,6 +29,7 @@ fs.lstat(output_dir, function(err){
     require('../lib/processors/dom/script'),
     require('../lib/processors/dom/link'),
     require('../lib/processors/dom/css-b64-images'),
+    require('../lib/processors/dom/exclude'),
     require('../lib/processors/file/html-minifier')
   ];
 

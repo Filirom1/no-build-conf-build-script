@@ -103,6 +103,8 @@ You need [nodejs installed](http://nodejs.org/#download).
     info md5 compute md5
     info link write example/out/css/app-503e33.css
     info build create file example/out/index.html
+    info exclude remove 9 elements
+    info build write file example/out/index.html
     info html-minifier optimize example/out/index.html
     info bin Build done in 1327 ms
 
@@ -122,6 +124,7 @@ Here processors/middlewares [less](http://lesscss.org/), [optipng](http://optipn
       require('no-build-conf/lib/processors/dom/script'),
       require('no-build-conf/lib/processors/dom/link'),
       require('no-build-conf/lib/processors/dom/css-b64-images'),
+      require('no-build-conf/lib/processors/dom/exclude'),
       require('no-build-conf/lib/processors/file/html-minifier')
     ];
 
@@ -145,7 +148,7 @@ For more information about the [Glob pattern](https://github.com/isaacs/node-glo
     module.exports = {
       glob: '**/*.png',
 
-      process: function(files, next){ 
+      process: function(files, next){
         //...
       }
     }

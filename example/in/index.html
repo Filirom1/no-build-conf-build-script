@@ -28,6 +28,7 @@
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
        chromium.org/developers/how-tos/chrome-frame-getting-started -->
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <div id="mocha" data-build-exclude="true"></div>
   <div role="main">
 
   </div>
@@ -55,13 +56,25 @@
   <script src="Router.js" data-build="app.js"></script>
   <!-- end scripts -->
 
-  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-       mathiasbynens.be/notes/async-analytics-snippet -->
-  <script>
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
+  <!-- Test begin: will be deleted for production -->
+  <link rel="stylesheet" href="/test/vendor/mocha.css" data-build-exclude="true">
+
+  <script src="/test/vendor/mocha.js" data-build-exclude="true"></script>
+  <script src="/test/vendor/chai.js" data-build-exclude="true"></script>
+  <script src="/test/vendor/chai-jquery.js" data-build-exclude="true"></script>
+  <script data-build-exclude="true">
+    mocha.setup('bdd');
+    expect = chai.expect;
   </script>
+  <script src="/test/test.array.js" data-build-exclude="true"></script>
+  <script src="/test/test.web.js" data-build-exclude="true"></script>
+  <script data-build-exclude="true">
+    if(/test/.test(location.hostname)) {
+      $(function(){
+        mocha.run();
+      });
+    }
+  </script>
+  <!-- End of test -->
 </body>
 </html>

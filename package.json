@@ -2,11 +2,11 @@
   "author": "Filirom1",
   "name": "no-build-conf",
   "description": "Stop configuring your assets pipeline. Everything is in the HTML. The build script just read your index.html.",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "repository": {
     "url": "https://github.com/Filirom1/no-build-conf-build-script"
   },
-  "main": "./lib/html",
+  "main": "./lib/build",
   "bin": {
     "build-html": "./bin/build.js"
   },

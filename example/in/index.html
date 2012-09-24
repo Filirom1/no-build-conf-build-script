@@ -34,14 +34,11 @@
   </div>
   <!-- JavaScript at the bottom for fast page loading -->
 
-  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="vendor/jquery-1.7.1.min.js"><\/script>')</script>
-
   <!-- I you use Backbone Model you will need JSON -->
   <script>(!!window.JSON && !!JSON.parse) || document.write('<script src="vendor/json2.min.js"><\/script>')</script>
 
   <!-- scripts concatenated and minified via build script -->
+  <script src="vendor/jquery-1.7.1.min.js" data-build="app.js"></script>
   <script src="vendor/log.js" data-build="app.js"></script>
   <script src="vendor/underscore.js" data-build="app.js"></script>
   <script src="vendor/backbone.js" data-build="app.js"></script>
